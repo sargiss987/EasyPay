@@ -1,0 +1,78 @@
+.header {
+    display : flex;
+    align-items: center;
+    width: 100%;
+}
+
+.header h1 {
+    color: #87CEFA;
+    margin-left: 40%;
+    margin-right : 30%;
+    font-size: 50px;
+}
+
+.content {
+  width: 30%;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      margin: auto;
+      border: 2px solid #87CEFA;
+      border-radius: 10px;
+      box-shadow:  -1px 1px #E8E8E8,
+                   -2px 2px #E8E8E8,
+                   -3px 3px #E8E8E8,
+                   -4px 4px #E8E8E8,
+                   -5px 5px #E8E8E8;
+}
+
+.item input {
+    width: 60%;
+    height: 30px;
+    border: 2px solid #87CEFA;
+    border-radius: 10px;
+}
+
+.item {
+    margin-bottom: 30px;
+}
+
+.item label {
+    color: #A0A0A0;
+    font-weight: 600;
+    font-size: 30px;
+    margin-left: 3px;
+ }
+
+.item span {
+   color: #A0A0A0;
+   font-weight: 600;
+   font-size: 30px;
+}
+
+.error_message {
+    margin-bottom: 2px;
+    margin-left: 2px;
+}
+
+.transactionFailed {
+    color: red;
+    font-weight: 600;
+}
+
+.error_message span {
+    color: red;
+    font-weight: 400;
+}
+
+.deposit_button {
+    background-color: #87CEFA;
+    color: #FFF;
+    font-weight: 900;
+    border: none;
+    border-radius: 10px;
+    margin-left : 30px;
+    height: 35px;
+    width: 100px;
+}

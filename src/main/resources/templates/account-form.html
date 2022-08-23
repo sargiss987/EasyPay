@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>easy_pay</title>
+    <link th:href="@{/styles/form.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/user-account.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="main-container" id="main-container"  th:object="${validationErrors}">
+    <div class="header">
+        <h1>Easy Pay</h1>
+        <div>
+            <button class="create_account_button" type="button" th:onclick="createAccount()">create account</button>
+        </div>
+        <div>
+            <button class="logout_button" type="button" th:onclick="logout()">logout</button>
+        </div>
+    </div>
+    <div class="content">
+        <h1>Create Account</h1>
+        <form class="form-container" th:action="@{/api/v1/bank/account}" th:object="${userDto}" th:method="post">
+            <div class="form-group">
+                <label>Balance</label>
+                <input th:type="number" step="any" th:name="balance" placeholder="Balance">
+                <span class="error-message" th:text="${validationErrors != null} ? ${validationErrors.balanceError} : ''"></span>
+            </div>
+            <div class="form-group">
+                <label>Currency</label>
+                <select th:name="currency">
+                    <option>Dollar</option>
+                    <option>Euro</option>
+                </select>
+                <span class="error-message" th:text="${validationErrors != null} ? ${validationErrors.currencyError} : ''"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit">Create account</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

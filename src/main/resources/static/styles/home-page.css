@@ -1,0 +1,23 @@
+.header {
+    display : flex;
+    align-items: center;
+    width: 100%;
+}
+
+.header h1 {
+    color: #87CEFA;
+    margin-left: 40%;
+    margin-right : 20%;
+    font-size: 50px;
+}
+
+.login_button {
+    background-color: #87CEFA;
+    color: #FFF;
+    font-weight: 900;
+    border: none;
+    border-radius: 10px;
+    margin-left : 15px;
+    height: 40px;
+    width: 100px;
+}

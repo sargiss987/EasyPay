@@ -1,0 +1,73 @@
+.header {
+    display : flex;
+    align-items: center;
+    width: 100%;
+}
+
+.header h1 {
+    color: #87CEFA;
+    margin-left: 40%;
+    margin-right : 20%;
+    font-size: 50px;
+}
+
+.create_account_button {
+    background-color: #87CEFA;
+    color: #FFF;
+    font-weight: 900;
+    border: none;
+    border-radius: 10px;
+    margin-left : 15px;
+    height: 40px;
+    width: 150px;
+}
+
+.logout_button {
+    background-color: #87CEFA;
+    color: #FFF;
+    font-weight: 900;
+    border: none;
+    border-radius: 10px;
+    margin-left : 15px;
+    height: 40px;
+    width: 100px;
+}
+
+.content{
+   padding: 10px;
+}
+
+.account {
+   display: flex;
+   width: 60%;
+   align-items: center;
+   margin-top: 10px;
+   padding: 10px;
+   border: 2px solid #87CEFA;
+   border-radius: 10px;
+   box-shadow:  -1px 1px #E8E8E8,
+                -2px 2px #E8E8E8,
+                -3px 3px #E8E8E8,
+                -4px 4px #E8E8E8,
+                -5px 5px #E8E8E8;
+}
+
+.account_item {
+    margin-left: auto;
+    font-weight: 900;
+    color: #A0A0A0;
+}
+
+.account_item label{
+    margin-left: 10px;
+}
+
+.account_item button {
+    background-color: #87CEFA;
+    color: #FFF;
+    font-weight: 900;
+    border: none;
+    border-radius: 10px;
+    height: 40px;
+    width: 150px;
+}

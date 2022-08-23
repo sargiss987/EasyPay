@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta th:name="_csrf" th:content="${_csrf.token}"/>
+    <meta th:name="_csrf_header" th:content="${_csrf.headerName}"/>
+    <link th:href="@{/styles/bank-account.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/bank-account.js}"></script>
+    <script type="text/javascript" th:src="@{/js/user-account.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>easy_pay</title>
+</head>
+<body>
+    <div class="main_container" id="main-container" th:object="${bankAccount}">
+        <div class="header">
+            <h1>Easy Pay</h1>
+            <div>
+                <button class="logout_button" type="button" th:onclick="logout()">logout</button>
+            </div>
+        </div>
+        <div class="content">
+            <div>
+                <input th:type="hidden" th:value="${bankAccount.id}" id="accountId"/>
+                <input th:type="hidden" th:value="${bankAccount.user.email}" id="email"/>
+            </div>
+            <div class="item">
+                <label>Owner:</label>
+                <span th:text="${bankAccount.user.firstName} + ' ' + ${bankAccount.user.lastName}"></span>
+            </div>
+            <div class="item">
+                <label>Balance:</label>
+                <span th:text="${bankAccount.balance}" id="balance"></span>
+                <span th:text="${bankAccount.currency.equals('Dollar')} ? '$' : '€'"></span>
+            </div>
+            <div class="error_message">
+                <span id="depositAmountError"></span>
+            </div>
+            <div class="item">
+                <input th:type="number" id="depositAmount">
+                <button class="deposit_button"
+                        onclick="deposit($('#depositAmount').val(),$('#accountId').val(),$('#email').val())"
+                    >Deposit
+                </button>
+            </div>
+            <div class="error_message">
+                <span id="withdrawAmountError"></span>
+            </div>
+            <div class="item">
+                <input th:type="number" id="withdrawAmount">
+                <button class="deposit_button"
+                        onclick="withdraw($('#withdrawAmount').val(),$('#accountId').val(),$('#email').val())"
+                    >Withdraw
+                </button>
+            </div>
+            <div class="transactionFailed">
+                <span id="transactionFailedHeader"></span>
+            </div>
+            <div class="transactionFailed">
+                <span id="transactionFailedMessage"></span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

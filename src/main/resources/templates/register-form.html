@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>easy_pay</title>
+    <link th:href="@{/styles/form.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/home-page.js}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="main-container" id="main-container" th:object="${validationErrors}">
+        <div class="header">
+            <h1>Easy Pay</h1>
+            <div>
+                <button class="login_button" type="button" th:onclick="register()">sign up</button>
+            </div>
+            <div>
+                <button class="login_button" type="button" th:onclick="login()">sign in</button>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Sign Up</h1>
+            <form class="form-container" th:action="@{/api/v1/auth/register}" th:object="${userDto}" th:method="post">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input th:type="text" th:name="firstName" placeholder="First Name">
+                    <span class="error-message" th:text="${validationErrors != null} ? ${validationErrors.firstNameError} : ''"></span>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input th:type th:name="lastName" placeholder="Last Name">
+                    <span class="error-message" th:text="${validationErrors != null} ? ${validationErrors.lastNameError} : ''"></span>
+                </div>
+                <div class="form-group" th:object="${emailAlreadyExistException}">
+                    <label>Email</label>
+                    <input th:type="text" th:name="email" placeholder="Email">
+                    <span class="error-message" th:text="${validationErrors != null} ? ${validationErrors.emailError} : ''"></span>
+                    <span class="error-message" th:text="${emailAlreadyExistException != null} ? ${emailAlreadyExistException} : ''"></span>
+                </div>
+                <div class="form-group">
+                    <label>password</label>
+                    <input th:type="password" th:name="password" placeholder="Password">
+                    <span class="error-message" th:text="${validationErrors != null} ? ${validationErrors.passwordError} : ''"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Sign up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
